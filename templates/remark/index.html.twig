@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Remark index{% endblock %}
+
+{% block body %}
+    <h1>Remark index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Contents</th>
+                <th>DateCreate</th>
+                <th>DateEdit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for remark in remarks %}
+            <tr>
+                <td>{{ remark.id }}</td>
+                <td>{{ remark.title }}</td>
+                <td>{{ remark.contents }}</td>
+                <td>{{ remark.dateCreate ? remark.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ remark.dateEdit ? remark.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('remark_show', {'id': remark.id}) }}">show</a>
+                    <a href="{{ path('remark_edit', {'id': remark.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('remark_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article
+{% endblock %}
+
+{% block body %}
+	<h1>Article</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ article.id }}</td>
+			</tr>
+			<tr>
+				<th>Image</th>
+				<td><img src="{{ asset('uploads/photos/' ~ article.img) }}" width="100"></td>
+			</tr>
+			<tr>
+				<th>Titre</th>
+				<td>{{ article.title }}</td>
+			</tr>
+			<tr>
+				<th>Date de sortie</th>
+				<td>{{ article.dateRelease }}</td>
+			</tr>
+			<tr>
+				<th>Contenu</th>
+				<td>{{ article.contents }}</td>
+			</tr>
+
+
+			<tr>
+				<th>Video</th>
+				<td>{{ article.video }}</td>
+			</tr>
+			<tr>
+				<th>Date de Création</th>
+				<td>{{ article.dateCreate ? article.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Date de modification</th>
+				<td>{{ article.dateEdit ? article.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('article_index') }}">Retour à la liste</a>
+
+	<a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
+
+	{{ include('article/_delete_form.html.twig') }}
+{% endblock %}
