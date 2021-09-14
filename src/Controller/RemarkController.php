@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/remark")
- * @isGranted("ROLE_ADMIN")
+ * @isGranted("ROLE_USER")
  */
 class RemarkController extends AbstractController
 {

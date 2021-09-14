@@ -18,6 +18,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/article")
+ * @isGranted("ROLE_EDITOR")
  */
 class ArticleController extends AbstractController
 {
