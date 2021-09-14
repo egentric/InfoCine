@@ -13,7 +13,7 @@ class RemarkType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('contents')
+            ->add('contents', CKEditorType::class)
             // ->add('dateCreate')
             // ->add('dateEdit')
         ;

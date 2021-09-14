@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Remark index{% endblock %}
+{% block title %}Commentaires{% endblock %}
 
 {% block body %}
-    <h1>Remark index</h1>
+    <h1>Commentaires</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Contents</th>
-                <th>DateCreate</th>
-                <th>DateEdit</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Date Création</th>
+                <th>Date Modification</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,12 +21,12 @@
             <tr>
                 <td>{{ remark.id }}</td>
                 <td>{{ remark.title }}</td>
-                <td>{{ remark.contents }}</td>
+                <td>{{ remark.contents|raw }}</td>
                 <td>{{ remark.dateCreate ? remark.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ remark.dateEdit ? remark.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('remark_show', {'id': remark.id}) }}">show</a>
-                    <a href="{{ path('remark_edit', {'id': remark.id}) }}">edit</a>
+                    <a href="{{ path('remark_show', {'id': remark.id}) }}">Afficher</a>
+                    <a href="{{ path('remark_edit', {'id': remark.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('remark_new') }}">Create new</a>
+    <a href="{{ path('remark_new') }}">Nouveau</a>
 {% endblock %}

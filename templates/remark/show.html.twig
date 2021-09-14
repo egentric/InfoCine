@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Remark{% endblock %}
+{% block title %}Commentaire{% endblock %}
 
 {% block body %}
-    <h1>Remark</h1>
+    <h1>Commentaire</h1>
 
     <table class="table">
         <tbody>
@@ -12,27 +12,27 @@
                 <td>{{ remark.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ remark.title }}</td>
             </tr>
             <tr>
-                <th>Contents</th>
-                <td>{{ remark.contents }}</td>
+                <th>Contenu</th>
+                <td>{{ remark.contents|raw }}</td>
             </tr>
             <tr>
-                <th>DateCreate</th>
+                <th>Date Création</th>
                 <td>{{ remark.dateCreate ? remark.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>DateEdit</th>
+                <th>Date Modification</th>
                 <td>{{ remark.dateEdit ? remark.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('remark_index') }}">back to list</a>
+    <a href="{{ path('remark_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('remark_edit', {'id': remark.id}) }}">edit</a>
+    <a href="{{ path('remark_edit', {'id': remark.id}) }}">Modifier</a>
 
     {{ include('remark/_delete_form.html.twig') }}
 {% endblock %}

@@ -5,11 +5,12 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Validator\Constraints\File;
 
 class ArticleType extends AbstractType
 {
@@ -18,7 +19,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('title')
             ->add('dateRelease')
-            ->add('contents')
+            ->add('contents', CKEditorType::class)
             // ->add('img')
             ->add('img', FileType::class, [
                 'label' => 'Photo',
