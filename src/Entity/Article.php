@@ -54,11 +54,7 @@ class Article
      */
     private $dateEdit;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Category::class, mappedBy="Article")
-     */
-    private $categories;
-
+   
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
      */
@@ -69,10 +65,16 @@ class Article
      */
     private $remarks;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="articles")
+     */
+    private $categories;
+
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
+       
         $this->remarks = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
 
@@ -165,32 +167,7 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    public function addCategory(Category $category): self
-    {
-        if (!$this->categories->contains($category)) {
-            $this->categories[] = $category;
-            $category->addArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        if ($this->categories->removeElement($category)) {
-            $category->removeArticle($this);
-        }
-
-        return $this;
-    }
+   
 
     public function getUser(): ?User
     {
@@ -230,6 +207,30 @@ class Article
                 $remark->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        $this->categories->removeElement($category);
 
         return $this;
     }

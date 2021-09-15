@@ -1,20 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Info Ciné{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% for article in articles %}
+    
+    <img src="{{ asset('uploads/photos/' ~ article.img) }}" width="50">
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.dateRelease }}</p>
+    <p>{{ article.contents|raw }}</p>
+    <div id='blogvision'>
+        <iframe src='{{ article.video }}' style='width:480px; height:270px'></iframe>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Apprenant/Documents/GitHub/TP_InfoCine/infocine/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Apprenant/Documents/GitHub/TP_InfoCine/infocine/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+{% endfor %}
+
+
 {% endblock %}

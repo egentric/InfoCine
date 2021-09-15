@@ -44,29 +44,30 @@
 
 
 				<div class="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Home</a>
-						</li>
-
-						{{
-              render(
-                controller('App\\Controller\\CategoryController::menuHead')
-              )
-            }}
-					</ul>
-				</div>
+						<ul class="navbar-nav justify-content-center me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link " aria-current="page" href="{{ path('home') }}"><i class="fas fa-home"></i></a>
+							</li>
+							<li class="nav-item">
+								<p class="nav-link ">Bienvenue {{ app.user.pseudo }}</p>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link " aria-current="page" href="{{ path('app_logout') }}"><i class="fas fa-user-times"></i></a>
+							</li>
+						</ul>
+					</div>
 			</div>
 		</nav>
     </header>
 
 	<section class="d-flex flex-row">
 			<nav class="nav flex-column">
+			
 				<a class="nav-link" href="{{ path('user_index') }}">Utilisateur</a>
 				<a class="nav-link" href="{{ path('article_index') }}">Articles</a>
 				<a class="nav-link" href="{{ path('remark_index') }}">Commentaires</a>
 				<a class="nav-link" href="{{ path('category_index') }}">Categories</a>
-				{# <a class="nav-link" href="{{ path('contact_index') }}">Contact</a> #}
+				<a class="nav-link" href="{{ path('contact_index') }}">Contact</a>
 			</nav>
 		<article>
 		{% block body %}{% endblock %}

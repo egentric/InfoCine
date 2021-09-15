@@ -2,19 +2,20 @@
 
 namespace App\Form;
 
-use App\Entity\Remark;
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RemarkType extends AbstractType
+class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('contents', CKEditorType::class)
+            ->add('name')
+            ->add('email')
+            ->add('topic')
+            ->add('message')
             // ->add('dateCreate')
             // ->add('dateEdit')
         ;
@@ -23,7 +24,7 @@ class RemarkType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Remark::class,
+            'data_class' => Contact::class,
         ]);
     }
 }

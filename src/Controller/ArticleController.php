@@ -18,7 +18,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/article")
- * @isGranted("ROLE_EDITOR")
  */
 class ArticleController extends AbstractController
 {
@@ -38,6 +37,8 @@ class ArticleController extends AbstractController
     public function new(Request $request, SluggerInterface $slugger): Response
     {
         $article = new Article();
+        $user = $this->getUser();
+        // $cat = $this->getCategory();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -62,13 +63,14 @@ class ArticleController extends AbstractController
                 // met à jour la propriété 'photoEleve' pour stocker le nom du fichier PDF au lieu de son contenu
                 $article->setImg($newFilename);
             }
-
-            $entityManager = $this->getDoctrine()->getManager();
-
             $dateTimeA = new DateTime();
             $article->setDateCreate($dateTimeA)
-                ->setDateEdit($dateTimeA);
+                ->setDateEdit($dateTimeA)
+                ->setUser($user);
+                // ->setCategory($cat);
+                
 
+            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
 

@@ -35,14 +35,18 @@ class Category
     private $dateEdit;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="categories")
+     * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="categories")
      */
-    private $Article;
+    private $articles;
 
     public function __construct()
     {
-        $this->Article = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
+
+   
+
+
 
     public function getId(): ?int
     {
@@ -88,15 +92,16 @@ class Category
     /**
      * @return Collection|Article[]
      */
-    public function getArticle(): Collection
+    public function getArticles(): Collection
     {
-        return $this->Article;
+        return $this->articles;
     }
 
     public function addArticle(Article $article): self
     {
-        if (!$this->Article->contains($article)) {
-            $this->Article[] = $article;
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->addCategory($this);
         }
 
         return $this;
@@ -104,8 +109,12 @@ class Category
 
     public function removeArticle(Article $article): self
     {
-        $this->Article->removeElement($article);
+        if ($this->articles->removeElement($article)) {
+            $article->removeCategory($this);
+        }
 
         return $this;
     }
+
+   
 }

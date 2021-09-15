@@ -1,0 +1,46 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h1>Contact</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contact.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact.email }}</td>
+            </tr>
+            <tr>
+                <th>sujet</th>
+                <td>{{ contact.topic }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ contact.message }}</td>
+            </tr>
+            <tr>
+                <th>Date de création</th>
+                <td>{{ contact.dateCreate ? contact.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de modification</th>
+                <td>{{ contact.dateEdit ? contact.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_index') }}">Retour à la liste</a>
+
+    {# <a href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a> #}
+
+    {{ include('contact/_delete_form.html.twig') }}
+{% endblock %}
