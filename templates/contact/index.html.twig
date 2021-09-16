@@ -14,7 +14,7 @@
                 <th>Sujet</th>
                 <th>Message</th>
                 <th>Date de Création</th>
-                <th>Date de modification</th>
+                {# <th>Date de modification</th> #}
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,10 +26,10 @@
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.topic }}</td>
                 <td>{{ contact.message }}</td>
-                <td>{{ contact.dateCreate ? contact.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ contact.dateCreate ? contact.dateCreate|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>{{ contact.dateEdit ? contact.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('contact_show', {'id': contact.id}) }}">Afficher</a>
+                    <a href="{{ path('contact_show', {'id': contact.id}) }}"><i class="fas fa-plus-square"></i></a>
                     {# <a href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a> #}
                 </td>
             </tr>

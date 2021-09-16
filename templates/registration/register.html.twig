@@ -3,6 +3,9 @@
 {% block title %}Enregistrement{% endblock %}
 
 {% block body %}
+<section class="container">
+
+		<div class="row fond">
     <h1>Enregistrement</h1>
 
     {{ form_start(registrationForm) }}
@@ -15,4 +18,7 @@
 
         <button type="submit" class="btn">Enregistrer</button>
     {{ form_end(registrationForm) }}
+
+</div>
+</section>
 {% endblock %}

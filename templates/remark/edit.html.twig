@@ -7,7 +7,7 @@
 
     {{ include('remark/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('remark_index') }}">Retour à la liste</a>
+    <a href="{{ path('remark_index') }}"><i class="far fa-undo-alt"></i></a>
 
     {{ include('remark/_delete_form.html.twig') }}
 {% endblock %}

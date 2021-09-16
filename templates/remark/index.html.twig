@@ -9,10 +9,12 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Pseudo</th>
+                <th>Article</th>
                 <th>Titre</th>
                 <th>Contenu</th>
                 <th>Date Création</th>
-                <th>Date Modification</th>
+                {# <th>Date Modification</th> #}
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,13 +22,15 @@
         {% for remark in remarks %}
             <tr>
                 <td>{{ remark.id }}</td>
+                <td>{{ remark.user.pseudo }}</td>
+                <td>{{ remark.article.title }}</td>
                 <td>{{ remark.title }}</td>
                 <td>{{ remark.contents|raw }}</td>
                 <td>{{ remark.dateCreate ? remark.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ remark.dateEdit ? remark.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ remark.dateEdit ? remark.dateEdit|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('remark_show', {'id': remark.id}) }}">Afficher</a>
-                    <a href="{{ path('remark_edit', {'id': remark.id}) }}">Modifier</a>
+                    <a href="{{ path('remark_show', {'id': remark.id}) }}"><i class="fas fa-plus-square"></i></a>
+                    <a href="{{ path('remark_edit', {'id': remark.id}) }}"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('remark_new') }}">Nouveau</a>
+    <a href="{{ path('remark_new') }}"><i class="fas fa-folder-plus"></i></a> Nouveau
 {% endblock %}

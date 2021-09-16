@@ -9,11 +9,12 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Pseudo</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Mot de passe</th>
+                {# <th>Mot de passe</th> #}
                 <th>Date Création</th>
-                <th>Date Modification</th>
+                {# <th>Date Modification</th> #}
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,14 +22,15 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
+                <td>{{ user.pseudo }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
+                {# <td>{{ user.password }}</td> #}
                 <td>{{ user.dateCreate ? user.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.dateEdit ? user.dateEdit|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ user.dateEdit ? user.dateEdit|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">Afficher</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}"><i class="fas fa-plus-square"></i></a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('user_new') }}">Nouveau</a>
+    <a href="{{ path('user_new') }}"><i class="fas fa-folder-plus"></i></a> Nouveau
 {% endblock %}

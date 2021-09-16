@@ -7,12 +7,14 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-																																           and uncomment the following Encore helpers to start using Symfony UX #}
+																																		           and uncomment the following Encore helpers to start using Symfony UX #}
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/cb109f8570.js" crossorigin="anonymous"></script>
-		<link href="{{ asset('css/styles.css') }}" type="text/css" rel="stylesheet">
-
+		<link href="{{ asset('Ressources/CSS/styles.css') }}" type="text/css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
 		{% endblock %}
@@ -23,19 +25,19 @@
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-expand navbar-light bg-light">
+			<nav class="navbar navbar-expand navbar-light ">
 				<div class="container-fluid">
-					<a class="navbar-brand">Navbar</a>
+					<a class="navbar-brand"><img src="{{ asset('images/infocine.png') }}" class="logo" alt="infociné"></a>
 					<form class="d-flex">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
+						<input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Recherche</button>
 					</form>
-					
+
 				</div>
 			</nav>
 
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
 
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,12 +46,16 @@
 
 
 					<div class="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
-						<ul class="navbar-nav justify-content-center me-auto mb-2 mb-lg-0">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
 							<li class="nav-item">
-								<a class="nav-link " aria-current="page" href="{{ path('home') }}"><i class="fas fa-home"></i></a>
+								<a class="nav-link navbarText" aria-current="page" href="{{ path('home') }}">
+									<i class="fas fa-home"></i>
+								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link " aria-current="page" href="{{ path('admin') }}"><i class="fas fa-user-cog"></i></a>
+								<a class="nav-link navbarText" aria-current="page" href="{{ path('admin') }}">
+									<i class="fas fa-user-cog"></i>
+								</a>
 							</li>
 
 							{{
@@ -58,10 +64,14 @@
               )
             }}
 							<li class="nav-item">
-								<a class="nav-link " aria-current="page" href="{{ path('app_login') }}"><i class="fas fa-user"></i></a>
+								<a class="nav-link navbarText" aria-current="page" href="{{ path('app_login') }}">
+									<i class="fas fa-user"></i>
+								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link " aria-current="page" href="{{ path('app_register') }}"><i class="fas fa-user-plus"></i></a>
+								<a class="nav-link navbarText" aria-current="page" href="{{ path('app_register') }}">
+									<i class="fas fa-user-plus"></i>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -78,7 +88,11 @@
 
 
 			<footer class="fixed-bottom mt-5">
-				<p class="copyright">© 2021 Arinfo éval3 -
+				<p class="copyright">Copyright© 2021 Arinfo éval3 Tous droits réservés -
+					<a href="#">Plan du site</a>
+					-
+					<a href="#">Mentions légales</a>
+					-
 					<a href="{{ path('contact_new') }}">Contact<a></p>
 						<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 					</footer>

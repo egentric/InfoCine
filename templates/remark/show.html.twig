@@ -12,6 +12,14 @@
                 <td>{{ remark.id }}</td>
             </tr>
             <tr>
+                <th>Pseudo</th>
+                <td>{{ remark.user.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Titre de l'article</th>
+                <td>{{ remark.article.title }}</td>
+            </tr>
+            <tr>
                 <th>Titre</th>
                 <td>{{ remark.title }}</td>
             </tr>
@@ -30,9 +38,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('remark_index') }}">Retour à la liste</a>
+    <a href="{{ path('remark_index') }}"><i class="far fa-undo-alt"></i></a>
 
-    <a href="{{ path('remark_edit', {'id': remark.id}) }}">Modifier</a>
+    <a href="{{ path('remark_edit', {'id': remark.id}) }}"><i class="fas fa-edit"></i></a>
 
     {{ include('remark/_delete_form.html.twig') }}
 {% endblock %}

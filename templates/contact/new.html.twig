@@ -3,9 +3,14 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
+<section class="container">
+
+		<div class="row fond">
     <h1>Contact</h1>
 
     {{ include('contact/_form.html.twig') }}
 
     {# <a href="{{ path('contact_index') }}">Retour à la liste</a> #}
+    </div>
+    </section>
 {% endblock %}

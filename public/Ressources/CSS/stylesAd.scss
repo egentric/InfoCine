@@ -1,0 +1,197 @@
+// RESET CSS
+// ===============================================================
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// VARIABLES
+// ================================================================
+
+$rouge: rgb(102, 0, 0, );
+$jaune: rgb(255, 255, 0);
+$grisFonce: #7c7c7c;
+$gris: #f0f0f0;
+
+// GLOBAL
+// ================================================================
+
+
+body {
+    background-color: white;
+    font-family: 'PT Sans', sans-serif;
+
+    .admin {
+        background-color: white !important;
+    }
+
+}
+
+h1 {
+    color: $rouge;
+    font-family: 'Source Serif Pro', serif;
+    text-align: center;
+    padding-top: 30px;
+}
+
+h2 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+
+// HEADER
+// ================================================================
+
+header {
+    background-color: $rouge;
+
+    .logo {
+        height: 150px;
+    }
+
+    .navbarText {
+        color: $gris !important;
+    }
+
+    .navbarText:hover {
+        color: $jaune !important;
+        transition: 1s;
+    }
+
+    .navbarText:active {
+        color: $grisFonce !important;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+    }
+
+    .btn {
+        color: $jaune;
+        border-color: $jaune;
+    }
+
+    .btn:hover {
+        background-color: $jaune;
+        color: $grisFonce;
+    }
+
+    
+        .pseudo {
+            color: $gris;
+    
+    }
+}
+
+// SECTION
+// ================================================================
+
+section {
+    padding-bottom: 35px;
+
+    .fond {
+        background-color: white;
+        min-height: 100vh;
+
+    }
+
+    .btn {
+        color: white;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        background-color: $grisFonce;
+        border-color: $grisFonce;
+    }
+
+    .btn:hover {
+        color: white;
+        background-color: $rouge;
+        border-color: $rouge;
+    }
+
+    .gche {
+        background-color: $grisFonce;
+        min-height: 100vh;
+        width: 160px;
+    }
+
+    .navbarAd {
+        color: $rouge !important;
+
+    }
+
+    .navbarAd:hover {
+        color: $jaune !important;
+        transition: 1s;
+    }
+
+    i {
+        color: $rouge;
+        font-size: 1.4rem;
+    }
+
+    i:hover {
+        color: $grisFonce;
+        font-size: 1.4rem;
+        transition: 1s;
+    }
+
+}
+.logo2 {
+    max-height: 500px;
+    text-align: center;
+}
+
+// NAV2
+// ================================================================
+
+nav {
+    .navbarAd {
+        i {
+            color: $rouge;
+            font-size: 1rem;
+        }
+
+        i:hover {
+            color: $jaune;
+            font-size: 1rem;
+            transition: 1s;
+        }
+
+    }
+}
+
+
+// FOOTER
+// ================================================================
+
+footer {
+
+    background-color: $jaune;
+
+    .copyright {
+        color: $rouge;
+        text-align: center;
+        font-size: 0.8rem;
+
+        a {
+            color: $rouge;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $grisFonce;
+            transition: 1s;
+        }
+    }
+}
+
+// ARTICLE
+// ================================================================
+
+article {
+    padding-left: 20px;
+    padding-right: 20px;
+}

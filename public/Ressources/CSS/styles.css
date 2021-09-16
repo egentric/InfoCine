@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  font-family: "PT Sans", sans-serif;
+}
+body .admin {
+  background-color: white !important;
+}
+
+h1 {
+  color: #660000;
+  font-family: "Source Serif Pro", serif;
+  text-align: center;
+  padding-top: 30px;
+}
+
+h2 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+header {
+  background-color: #660000;
+}
+header .logo {
+  height: 150px;
+}
+header .navbarText {
+  color: #f0f0f0 !important;
+}
+header .navbarText:hover {
+  color: yellow !important;
+  transition: 1s;
+}
+header .navbarText:active {
+  color: #7c7c7c !important;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+header .btn {
+  color: yellow;
+  border-color: yellow;
+}
+header .btn:hover {
+  background-color: yellow;
+  color: #7c7c7c;
+}
+
+section .fond {
+  background-color: white;
+  min-height: 100vh;
+}
+section .btn {
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #7c7c7c;
+  border-color: #7c7c7c;
+}
+section .btn:hover {
+  color: white;
+  background-color: #660000;
+  border-color: #660000;
+}
+
+footer {
+  background-color: yellow;
+}
+footer .copyright {
+  color: #660000;
+  text-align: center;
+  font-size: 0.8rem;
+}
+footer .copyright a {
+  color: #660000;
+  text-decoration: none;
+}
+footer .copyright a:hover {
+  color: #7c7c7c;
+  transition: 1s;
+}/*# sourceMappingURL=styles.css.map */

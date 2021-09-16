@@ -34,16 +34,21 @@ class RemarkController extends AbstractController
     public function new(Request $request): Response
     {
         $remark = new Remark();
+        $user = $this->getUser();
+        // $article = $this->getArticle();
         $form = $this->createForm(RemarkType::class, $remark);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             
             $dateTimeR = new DateTime();
             $remark->setDateCreate($dateTimeR)
-                ->setDateEdit($dateTimeR);
-            
+                ->setDateEdit($dateTimeR)
+                ->setUser($user)
+                // ->setArticle($article)
+                ;
+                
+            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($remark);
             $entityManager->flush();
 

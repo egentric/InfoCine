@@ -1,19 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Info Ciné
-{% endblock %}
+{% block title %}{{ 'id': category.nameCategory }}% endblock %}
 
 {% block body %}
-
-	<section class="container">
-
-		<div class="row fond">
-			<h1>Bienvenue sur
-				<strong>Info Ciné</strong>
-			</h1>
-			<h2>Toutes l'actualitées des films séries et animés, sortie cinéma DVD Blue ray et streaming.</h2>
-			<article>
-				{% for article in articles %}
+{% for article in articles %}
+    <h1>{{ article.title}}</h1>
+<article>
+				
 
 					<div class="card mb-3" style="max-width: 98%;">
 						<div class="row g-0">
@@ -23,21 +16,17 @@
 							<div class="col-md-8">
 								<div class="card-body">
 									<h5 class="card-title">{{ article.title }}</h5>
+                                    <p class="card-text">{{ article.dateRelease }}</p>
 									<p class="card-text">{{ article.contents|raw }}</p>
-									{# <div id='blogvision'>
+									<div id='blogvision'>
 																<iframe src='{{ article.video }}' style='width:380px; height:170px'></iframe>
-															</div> #}
+															</div>
 
 								</div>
 							</div>
 						</div>
 					</div>
-				{% endfor %}
+				
 			</article>
-
-		</div>
-
-	</section>
-
-
+            {% endfor %}
 {% endblock %}
