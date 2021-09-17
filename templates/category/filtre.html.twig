@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.nameCategory}}{% endblock %}
+
+{% block body %}
+
+	<section class="container">
+
+		<div class="row fond">
+
+    <h1>{{ category.nameCategory}}</h1>
+<article>
+				{% for article in category.articles %}
+
+					<div class="card mb-3" style="max-width: 98%;">
+						<div class="row g-0">
+							<div class="col-md-4">
+								<img src="{{ asset('uploads/photos/' ~ article.img) }}" class="w-50 rounded-start" alt="...">
+							</div>
+							<div class="col-md-8">
+								<div class="card-body">
+									<h5 class="card-title">{{ article.title }}</h5>
+									<p class="card-text">{{ article.contents|raw }}</p>
+									{# <div id='blogvision'>
+																<iframe src='{{ article.video }}' style='width:380px; height:170px'></iframe>
+															</div> #}
+                                    <a href="{{ path('category_filtreAff', {'id': article.id}) }}"><i class="fas fa-plus-square"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</article>
+            </div>
+            </section>
+
+{% endblock %}

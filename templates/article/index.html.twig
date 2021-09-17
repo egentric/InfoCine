@@ -11,7 +11,8 @@
                 <th>Id</th>
                 <th>Image</th>
                 <th>Titre</th>
-                {# <th>Catégorie</th> #}
+                <th>Catégorie</th>
+                <th>Auteur</th>
                 <th>Date de sortie</th>
                 <th>Contenu</th>
                 {# <th>Video</th> #}
@@ -26,12 +27,12 @@
                 <td>{{ article.id }}</td>
                 <td><img src="{{ asset('uploads/photos/' ~ article.img) }}" width="50"></td>
                 <td>{{ article.title }}</td>
-                {# <td>
-                    {% for category in articles.category %}
+                <td>
+                    {% for category in article.categories %}
                         {{ category.nameCategory }}
                     {% endfor %}
-                </td> #}
-
+                </td>
+                <td>{{ article.user.pseudo }}</td>
 
                 <td>{{ article.dateRelease }}</td>
                 <td>{{ article.contents|raw }}</td>

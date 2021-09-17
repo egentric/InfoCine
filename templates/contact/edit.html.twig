@@ -7,7 +7,7 @@
 
     {{ include('contact/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('contact_index') }}">Retour à la liste</a>
+    <a href="{{ path('contact_index') }}"><i class="fas fa-undo-alt"></i></a>
 
     {{ include('contact/_delete_form.html.twig') }}
 {% endblock %}

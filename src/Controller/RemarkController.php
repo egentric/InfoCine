@@ -4,13 +4,14 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Remark;
+use App\Entity\Article;
 use App\Form\RemarkType;
 use App\Repository\RemarkRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
@@ -29,13 +30,16 @@ class RemarkController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="remark_new", methods={"GET","POST"})
+     * @Route("/{id}/new", name="remark_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, $id): Response
     {
+        
         $remark = new Remark();
         $user = $this->getUser();
         // $article = $this->getArticle();
+        $article = $this->getDoctrine()->getRepository(Article::class)->findOneBy(['id'=>$id]);
+        
         $form = $this->createForm(RemarkType::class, $remark);
         $form->handleRequest($request);
 
@@ -45,14 +49,14 @@ class RemarkController extends AbstractController
             $remark->setDateCreate($dateTimeR)
                 ->setDateEdit($dateTimeR)
                 ->setUser($user)
-                // ->setArticle($article)
+                ->setArticle($article)
                 ;
                 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($remark);
             $entityManager->flush();
 
-            return $this->redirectToRoute('remark_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('category_filtreAff', ['id'=>$article->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('remark/new.html.twig', [

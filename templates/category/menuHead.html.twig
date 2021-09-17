@@ -1,6 +1,6 @@
 {% for category in categorie %}
 	<li class="nav-item">
-		<a class="nav-link navbarText" href="{{path('category_index',{'id': category.id})}}">
+		<a class="nav-link navbarText" href="{{path('category_filtre',{'id': category.id})}}">
 			{{ category.nameCategory }}</a>
 	</li>
 {% endfor %}

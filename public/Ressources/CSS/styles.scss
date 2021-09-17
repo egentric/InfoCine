@@ -9,7 +9,7 @@
 // VARIABLES
 // ================================================================
 
-$rouge: rgb(102, 0, 0,);
+$rouge: rgb(102, 0, 0, );
 $jaune: rgb(255, 255, 0);
 $grisFonce: #7c7c7c;
 $gris: #f0f0f0;
@@ -21,10 +21,11 @@ $gris: #f0f0f0;
 body {
     background-color: black;
     font-family: 'PT Sans', sans-serif;
-    .admin{
-        background-color: white!important;
+
+    .admin {
+        background-color: white !important;
     }
-    
+
 }
 
 h1 {
@@ -33,6 +34,7 @@ h1 {
     text-align: center;
     padding-top: 30px;
 }
+
 h2 {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -46,40 +48,46 @@ h2 {
 header {
     background-color: $rouge;
 
-    .logo{
+    .logo {
         height: 150px;
     }
-    .navbarText{
-        color: $gris!important;
+
+    .navbarText {
+        color: $gris !important;
     }
-    .navbarText:hover{
-        color: $jaune!important;
+
+    .navbarText:hover {
+        color: $jaune !important;
         transition: 1s;
     }
+
     .navbarText:active {
-        color: $grisFonce!important;
+        color: $grisFonce !important;
         text-decoration: underline;
         text-underline-offset: 5px;
     }
-    .btn{
+
+    .btn {
         color: $jaune;
         border-color: $jaune;
     }
-    .btn:hover{
+
+    .btn:hover {
         background-color: $jaune;
         color: $grisFonce;
     }
 }
+
 // SECTION
 // ================================================================
 
 section {
-    .fond{
+    .fond {
         background-color: white;
         min-height: 100vh;
     }
-    
-    .btn{
+
+    .btn {
         color: white;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -87,13 +95,44 @@ section {
         background-color: $grisFonce;
         border-color: $grisFonce;
     }
-    .btn:hover{
+
+    .btn:hover {
         color: white;
         background-color: $rouge;
         border-color: $rouge;
     }
- 
 }
+
+// SECTION
+// ================================================================
+
+article {
+    i {
+        color: $rouge;
+        font-size: 1rem;
+    }
+
+    i:hover {
+        color: $grisFonce;
+        font-size: 1rem;
+        transition: 1s;
+    }
+    a {
+        color: $rouge!important;
+        font-size: 1rem;
+    }
+
+    a:hover {
+        color: $grisFonce!important;
+        font-size: 1rem;
+        transition: 1s;
+    }
+
+    .card {
+        background-color: $gris!important;
+    }
+}
+
 
 // FOOTER
 // ================================================================
@@ -101,15 +140,17 @@ section {
 footer {
     background-color: $jaune;
 
-    .copyright{
+    .copyright {
         color: $rouge;
         text-align: center;
         font-size: 0.8rem;
-        a{
+
+        a {
             color: $rouge;
             text-decoration: none;
         }
-        a:hover{
+
+        a:hover {
             color: $grisFonce;
             transition: 1s;
         }

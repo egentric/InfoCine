@@ -3,9 +3,14 @@
 {% block title %}Nouveau commentaire{% endblock %}
 
 {% block body %}
+<section class="container">
+
+		<div class="row fond">
     <h1>Nouveau commentaire</h1>
 
     {{ include('remark/_form.html.twig') }}
 
     {# <a href="{{ path('remark_index') }}">Retour à la liste</a> #}
+    </div>
+    </section>
 {% endblock %}

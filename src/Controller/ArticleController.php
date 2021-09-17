@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,6 +31,17 @@ class ArticleController extends AbstractController
             'articles' => $articleRepository->findAll(),
         ]);
     }
+
+    // /**
+    //  * @Route("/{id}/liste", name="article_filtre", methods={"GET"})
+    //  */
+    // public function filtre(ArticleRepository $articleRepository, $id): Response
+    // {
+    //     $categories = $this->getDoctrine()->getRepository(Category::class)->findBy(['id' => $id]);
+    //     return $this->render('article/index.html.twig', [
+    //         'articles' => $articleRepository->findBy([],['categories' => $categories]),
+    //     ]);
+    // }
 
     /**
      * @Route("/new", name="article_new", methods={"GET","POST"})

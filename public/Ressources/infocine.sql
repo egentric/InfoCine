@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 15 sep. 2021 à 14:52
+-- Généré le : ven. 17 sep. 2021 à 13:38
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 
 INSERT INTO `category` (`id`, `name_category`, `date_create`, `date_edit`) VALUES
 (1, 'Cinéma', '2021-09-13 12:46:49', '2021-09-13 12:46:49'),
-(2, 'séries', '2021-09-13 12:46:58', '2021-09-13 12:46:58'),
+(2, 'Séries', '2021-09-13 12:46:58', '2021-09-13 12:46:58'),
 (3, 'Streaming', '2021-09-14 14:26:12', '2021-09-14 14:26:12'),
 (4, 'Animé', '2021-09-14 14:26:49', '2021-09-14 14:26:49'),
 (5, 'DVD Blue Ray', '2021-09-14 14:27:04', '2021-09-14 14:27:04');
@@ -202,14 +202,19 @@ CREATE TABLE IF NOT EXISTS `remark` (
   PRIMARY KEY (`id`),
   KEY `IDX_E1CAD839A76ED395` (`user_id`),
   KEY `IDX_E1CAD8397294869C` (`article_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `remark`
 --
 
 INSERT INTO `remark` (`id`, `title`, `contents`, `date_create`, `date_edit`, `user_id`, `article_id`) VALUES
-(1, 'Superbe Article ;)', '<p>cvbhxfghbdfghfgdgfh</p>', '2021-09-15 10:01:19', '2021-09-15 10:01:19', NULL, NULL);
+(1, 'Superbe Article ;)', '<p>cvbhxfghbdfghfgdgfh</p>', '2021-09-15 10:01:19', '2021-09-15 10:01:19', 3, 3),
+(2, 'pfff', '<p>dsfgfdsqgfdsqg</p>', '2021-09-17 09:51:59', '2021-09-17 09:51:59', 5, 9),
+(3, 'pfff', '<p>fdshgsfsdfhsfdgh</p>', '2021-09-17 09:52:44', '2021-09-17 09:52:44', 4, 4),
+(4, 'Zalor', '<p>hgjfkjkfgj</p>', '2021-09-17 11:46:53', '2021-09-17 11:46:53', 4, 10),
+(5, 'Zalor', '<p>sfdhfsdhfsg</p>', '2021-09-17 12:02:49', '2021-09-17 12:02:49', 4, 6),
+(6, 'hophophop', '<p>dgfdqsgfsdgs</p>', '2021-09-17 12:13:58', '2021-09-17 12:13:58', 4, 6);
 
 -- --------------------------------------------------------
 

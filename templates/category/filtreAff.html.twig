@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ article.title}}
+{% endblock %}
+
+{% block body %}
+
+	<section class="container">
+
+		<div class="row fond">
+
+			<h1>{{ article.title}}</h1>
+			<article>
+
+
+				<div class="card mb-3" style="max-width: 98%;">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<img src="{{ asset('uploads/photos/' ~ article.img) }}" class="img-fluid rounded-start" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h3 class="card-title">{{ article.title }}</h3>
+								<p>{{ article.dateRelease }}</p>
+								<p class="card-text">{{ article.contents|raw }}</p>
+								<div id='blogvision'>
+									<iframe src='{{ article.video }}' style='width:480px; height:270px'></iframe>
+								</div>
+
+							</div>
+							{% if is_granted("ROLE_USER") %}
+							<a class="nav-link navbarAd" href="{{ path('remark_new', {'id': article.id}) }}">
+								<i class="far fa-comment"></i>
+								Commentaires</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+			</article>
+
+			<article>
+{% for remark in article.remarks %}
+				<div class="card mb-3" style="max-width: 98%;">
+					<div class="row g-0">
+						
+							<div class="col-md-8">
+								<div class="card-body">
+									<h4 class="card-title">{{ remark.title }}</h4>
+									<p>{{ remark.user.pseudo }}</p>
+									<p class="card-text">{{ remark.contents|raw }}</p>
+								</div>
+							</div>
+
+						
+					</div>
+				</div>
+{% endfor %}
+			</article>
+
+		</div>
+	</section>
+
+{% endblock %}

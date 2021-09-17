@@ -65,12 +65,16 @@
 
 	<section class="d-flex flex-row">
 			<nav class="nav gche flex-column">
-			
-				<a class="nav-link navbarAd" href="{{ path('user_index') }}"><i class="fas fa-users"></i> Utilisateur</a>
+			{% if is_granted("ROLE_ADMIN") %}
+ 				<a class="nav-link navbarAd" href="{{ path('user_index') }}"><i class="fas fa-users"></i> Utilisateur</a>
+			{% endif %}
+				
 				<a class="nav-link navbarAd" href="{{ path('article_index') }}"><i class="far fa-newspaper"></i> Articles</a>
 				<a class="nav-link navbarAd" href="{{ path('remark_index') }}"><i class="far fa-comment"></i> Commentaires</a>
+			{% if is_granted("ROLE_ADMIN") %}
 				<a class="nav-link navbarAd" href="{{ path('category_index') }}"><i class="far fa-folder"></i></i> Catégories</a>
 				<a class="nav-link navbarAd" href="{{ path('contact_index') }}"><i class="far fa-envelope"></i> Contact</a>
+			{% endif %}
 			</nav>
 		<article>
 		{% block body %}{% endblock %}

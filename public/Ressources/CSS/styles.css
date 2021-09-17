@@ -69,6 +69,28 @@ section .btn:hover {
   border-color: #660000;
 }
 
+article i {
+  color: #660000;
+  font-size: 1rem;
+}
+article i:hover {
+  color: #7c7c7c;
+  font-size: 1rem;
+  transition: 1s;
+}
+article a {
+  color: #660000 !important;
+  font-size: 1rem;
+}
+article a:hover {
+  color: #7c7c7c !important;
+  font-size: 1rem;
+  transition: 1s;
+}
+article .card {
+  background-color: #f0f0f0 !important;
+}
+
 footer {
   background-color: yellow;
 }

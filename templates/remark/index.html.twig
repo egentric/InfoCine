@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1>Commentaires</h1>
-
     <table class="table">
         <thead>
             <tr>
@@ -26,7 +25,7 @@
                 <td>{{ remark.article.title }}</td>
                 <td>{{ remark.title }}</td>
                 <td>{{ remark.contents|raw }}</td>
-                <td>{{ remark.dateCreate ? remark.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ remark.dateCreate ? remark.dateCreate|date('Y-m-d H:i:s') : '' }}</td> 
                 {# <td>{{ remark.dateEdit ? remark.dateEdit|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
                     <a href="{{ path('remark_show', {'id': remark.id}) }}"><i class="fas fa-plus-square"></i></a>
@@ -41,5 +40,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('remark_new') }}"><i class="fas fa-folder-plus"></i></a> Nouveau
+    {# <a href="{{ path('remark_new') }}"><i class="fas fa-folder-plus"></i></a> Nouveau #}
 {% endblock %}
